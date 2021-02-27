@@ -11,38 +11,16 @@ import {
 import {
   Header,
   LearnMoreLinks,
-  Colors,
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {createAppContainer} from 'react-navigation';
-import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
+import { createAppContainer } from 'react-navigation';
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 import HomeScreen from "./screens/HomeScreen";
 import ProfileScreen from "./screens/ProfileScreen";
-
-
-// class HomeScreen extends React.Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text>HomeScreen</Text>
-//       </View>
-//     )
-//   }
-// }
-
-// class ProfileScreen extends React.Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text>ProfileScreen</Text>
-//       </View>
-//     )
-//   }
-// }
-
+import Colors from "./constants/Colors";
 
 const TabNavigator = createMaterialBottomTabNavigator(
   {
@@ -51,9 +29,10 @@ const TabNavigator = createMaterialBottomTabNavigator(
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
           <View>
-            <Icon style={[{color: tintColor}]} size={25} name={'ios-home'} />
+            <Icon style={[{ color: tintColor }]} size={25} name={'ios-search'} />
           </View>
         ),
+
       }
     },
     Profile: {
@@ -61,20 +40,17 @@ const TabNavigator = createMaterialBottomTabNavigator(
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
           <View>
-            <Icon style={[{color: tintColor}]} size={25} name={'ios-person'} />
+            <Icon style={[{ color: tintColor }]} size={25} name={'ios-person'} />
           </View>
         ),
-        activeColor: '#ffffff',
-        inactiveColor: '#a3c2fa',
-        barStyle: { backgroundColor: '#2163f6' },
       }
     },
   },
   {
     initialRouteName: 'Home',
-    activeColor: '#ffffff',
-    inactiveColor: '#bda1f7',
-    barStyle: { backgroundColor: '#6948f4' },
+    activeColor: Colors.primary,
+    inactiveColor: '#a3c2fa',
+    barStyle: { backgroundColor: Colors.accent },
   }
 );
 
